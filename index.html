@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>Post List</title>
+    <style>
+        @page {
+            size: A2;
+            margin: 20mm;
+        }
+
+
+        body {
+            font-size: 14px;
+            /* General font size */
+            margin: 0;
+            padding: 0;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            /* Font size for table */;
+            max-height: calc(100vh - 100px); 
+        }
+
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+
+        th,
+        td {
+            padding: 5px;
+            /* Added padding for better readability */
+            text-align: center;
+            word-wrap: break-word;
+            /* Allows long words to break onto the next line */
+        }
+
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+
+       /* Customize column widths */
+        th:nth-child(1), td:nth-child(1) { width: 5%; } /* Asset ID */
+        th:nth-child(2), td:nth-child(2) { width: 9%; } /* Asset Name */
+        th:nth-child(3), td:nth-child(3) { width: 9%; } /* Category */
+        th:nth-child(4), td:nth-child(4) { width: 9%; } /* Serial Number */
+        th:nth-child(5), td:nth-child(5) { width: 8%; } /* Expire Date Warranty */
+        th:nth-child(6), td:nth-child(6) { width: 8%; } /* Purchased On */
+        th:nth-child(7), td:nth-child(7) { width: 5%; } /* Price */
+        th:nth-child(8), td:nth-child(8) { width: 5%; } /* Expiry Notify Period */
+        th:nth-child(9), td:nth-child(9) { width: 8%; } /* Location */
+        th:nth-child(10), td:nth-child(10) { width: 8%; } /* Vendor Name */
+        th:nth-child(11), td:nth-child(11) { width: 8%; } /* Tag Name */
+        th:nth-child(12), td:nth-child(12) { width: 5%; } /* Status */
+        th:nth-child(13), td:nth-child(13) { width: 5%; } /* Condition */
+        th:nth-child(14), td:nth-child(14) { width: 8%; } /* Assigned to */
+        /* Assigned to */
+        .header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+
+        .header img {
+            max-width: 150px;
+            margin-right: 20px;
+            /* Space between logo and text */
+        }
+
+
+        .header .company-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+
+        .header .company-info h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+
+        .header .company-info p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+
+        .header .company-info .contact-info {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+
+        tr {
+            page-break-inside: avoid;
+        }
+        
+    </style>
+</head>
+
+
+<body>
+    <div class="header">
+        <img src='./image.jpg' alt="Company Logo"> <!-- Update the logo path as needed -->
+        <div class="company-info">
+            <h1>Ronak Gondaliya</h1> <!-- Update with the actual company name -->
+            <p>Surat, Gujarat, India</p> <!-- Update with the actual company address -->
+            <div class="contact-info">
+                <p>Phone: 92659 12440</p> <!-- Update with the actual phone number -->
+                <p>Email: gondaliya.ronak100@gmail.com</p> <!-- Update with the actual email address -->
+            </div>
+        </div>
+    </div>
+
+
+    <h2>Post List</h2>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Post ID</th>
+                <th>Title</th>
+                <th>Body</th>
+                <th>Tags</th>
+                <th>Reactions</th>
+                <th>Views</th>
+                <th>User ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each assets}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.title}}</td>
+                <td>{{this.body}}</td>
+                <td>{{this.tags}}</td>
+                <td>{{this.reactions}}</td>
+                <td>{{this.views}}</td>
+                <td>{{this.userId}}</td>
+                <td>{{this.assignTo}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+
+
+</html>
